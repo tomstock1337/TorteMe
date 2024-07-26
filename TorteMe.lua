@@ -54,7 +54,7 @@ TorteMe.Defaults.HUD.enabled = false
 
 --Debug
 TorteMe.Defaults.Debug = {}
-TorteMe.Defaults.Debug.showDebug = true
+TorteMe.Defaults.Debug.showDebug = false --Should be false by default
 TorteMe.Defaults.Debug.showDebugLevel = 2
 
 --Zone Info
