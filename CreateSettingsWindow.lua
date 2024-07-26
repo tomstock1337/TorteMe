@@ -28,7 +28,6 @@ function TorteMe.CreateSettingsWindow()
           end
         end,
 			disabled = function() return not TorteMe.sv.Torte.enableTortes end,
-			default = true,
 			reference = "TORTE_ME_HUD_ENABLE"
     },
     {
@@ -46,7 +45,6 @@ function TorteMe.CreateSettingsWindow()
           TorteMe.sv.Torte.enableTortes = value
           TorteMe:TorteBuffReminderLoop()
         end,
-			default = true,
 			reference = "TORTE_ME_ENABLE_TORTES"
     },
 		{
@@ -60,7 +58,6 @@ function TorteMe.CreateSettingsWindow()
           TorteMe.sv.Torte.autoConsume = value
           TorteMe:TorteBuffReminderLoop()
         end,
-			default = true,
 			disabled = function() return not TorteMe.sv.Torte.enableTortes end,
 			reference = "TORTE_ME_TRACK_AUTO_CONSUME_TORTE"
     },
@@ -77,7 +74,6 @@ function TorteMe.CreateSettingsWindow()
 			setFunc = function(value)
 				TorteMe.sv.Torte.torteNotificationTime = value
 			end,
-			default = 5,
 			disabled = function() return not TorteMe.sv.Torte.enableTortes end,
 			reference = "TORTE_ME_TORTE_NOTIFICATION_TIME"
 		},
@@ -93,7 +89,6 @@ function TorteMe.CreateSettingsWindow()
 			setFunc = function(value)
 				TorteMe.sv.Torte.torteNotifyWhenBelow = value
 			end,
-			default = 5,
 			disabled = function() return not TorteMe.sv.Torte.enableTortes end,
 			reference = "TORTE_ME_TORTE_NOTIFY_WHEN_BELOW"
 		},
@@ -112,7 +107,6 @@ function TorteMe.CreateSettingsWindow()
           TorteMe.sv.Torte.enableDelves = value
           TorteMe:DelveBonusReminderLoop()
         end,
-			default = true,
 			reference = "TORTE_ME_ENABLE_DELVE_BONUS"
     },
     {
@@ -127,7 +121,6 @@ function TorteMe.CreateSettingsWindow()
 			setFunc = function(value)
 				TorteMe.sv.Torte.delveNotificationTime = value
 			end,
-			default = 10,
 			disabled = function() return not TorteMe.sv.Torte.enableTortes end,
 			reference = "TORTE_ME_DELVE_NOTIFICATION_TIME"
     },
@@ -145,7 +138,6 @@ function TorteMe.CreateSettingsWindow()
 			setFunc = function(value)
           TorteMe.sv.Debug.showDebug = value
         end,
-			default = false,
 			reference = "TORTE_ME_SHOW_DEBUG",
 			disabled = false
 		},
@@ -161,7 +153,6 @@ function TorteMe.CreateSettingsWindow()
 			setFunc = function(value)
           TorteMe.sv.Debug.showDebugLevel = value
         end,
-			default = 50,
 			disabled = function() return not TorteMe.sv.Debug.showDebug end,
 			reference = "TORTE_ME_DEBUG_LEVEL"
     }
