@@ -41,6 +41,9 @@ TorteMe.Defaults.Torte.enableTortes = true
 TorteMe.Defaults.Torte.autoConsume = true
 TorteMe.Defaults.Torte.torteNotifyWhenBelow = 5
 TorteMe.Defaults.Torte.torteNotificationTime = 5
+
+--Delve
+TorteMe.Defaults.Torte.enableDelves = true
 TorteMe.Defaults.Torte.delveNotificationTime = 10
 
 

@@ -28,20 +28,25 @@ function TorteMe:TorteSetup()
 		TorteMeUI:SetHidden(true)
 	end
 
-	local delveBonusInfo = TorteMe:DoesPlayerHaveDelveBonus()
-	if delveBonusInfo.delveBonusActive == true then
-		TorteMe:UpdateDelveHUD(delveBonusInfo.delveBonusName, delveBonusInfo.delveBonusEnding)
-	else
-		TorteMeUIDelveBonusTime:SetText("EXPIRED")
-		TorteMeUIDelveBonusTime:SetColor(255,0,0,255)
-	end
-	local torteBuffInfo = TorteMe:DoesPlayerHaveTorteBuff()
-	if torteBuffInfo.torteBuffActive == true then
-		TorteMe:UpdateTorteHUD(torteBuffInfo.torteBuffName, torteBuffInfo.torteBuffEnding)
-	else 
-		TorteMeUITorteBuffTime:SetText("EXPIRED")
-		TorteMeUITorteBuffTime:SetColor(255,0,0,255)
-	end
-	TorteMe:TorteBuffReminderLoop()
-	TorteMe:DelveBonusReminderLoop()	
+  if TorteMe.sv.Torte.enableDelves == true then
+    local delveBonusInfo = TorteMe:DoesPlayerHaveDelveBonus()
+    if delveBonusInfo.delveBonusActive == true then
+      TorteMe:UpdateDelveHUD(delveBonusInfo.delveBonusName, delveBonusInfo.delveBonusEnding)
+    else
+      TorteMeUIDelveBonusTime:SetText("EXPIRED")
+      TorteMeUIDelveBonusTime:SetColor(255,0,0,255)
+    end
+    TorteMe:DelveBonusReminderLoop()
+  end
+
+  if TorteMe.sv.Torte.enableTortes == true then
+    local torteBuffInfo = TorteMe:DoesPlayerHaveTorteBuff()
+    if torteBuffInfo.torteBuffActive == true then
+      TorteMe:UpdateTorteHUD(torteBuffInfo.torteBuffName, torteBuffInfo.torteBuffEnding)
+    else
+      TorteMeUITorteBuffTime:SetText("EXPIRED")
+      TorteMeUITorteBuffTime:SetColor(255,0,0,255)
+    end
+    TorteMe:TorteBuffReminderLoop()
+  end
 end

@@ -15,6 +15,23 @@ function TorteMe.CreateSettingsWindow()
 
 	local settingsOptionsData = {
     {
+      type = "checkbox",
+      name = "Enable HUD",
+			tooltip = "Turns on the HUD",
+      getFunc = function()
+          return TorteMe.sv.HUD.enabled
+        end,
+      setFunc = function(value)
+          TorteMe.sv.HUD.enabled = value
+          if GetParentZoneId(GetZoneId(GetUnitZoneIndex("player"))) == 181 then
+            TorteMeUI:SetHidden(not value)
+          end
+        end,
+			disabled = function() return not TorteMe.sv.Torte.enableTortes end,
+			default = true,
+			reference = "TORTE_ME_HUD_ENABLE"
+    },
+    {
 			type = "header",
 			name = "War Tortes"
 		},
@@ -81,6 +98,24 @@ function TorteMe.CreateSettingsWindow()
 			reference = "TORTE_ME_TORTE_NOTIFY_WHEN_BELOW"
 		},
     {
+			type = "header",
+			name = "Delve Bonus"
+		},
+    {
+      type = "checkbox",
+      name = "Enable Delve Bonus Reminder",
+			tooltip = "Enable tracking Delve Bonus while in Cyrodiil",
+      getFunc = function()
+          return TorteMe.sv.Torte.enableDelves
+        end,
+      setFunc = function(value)
+          TorteMe.sv.Torte.enableDelves = value
+          TorteMe:DelveBonusReminderLoop()
+        end,
+			default = true,
+			reference = "TORTE_ME_ENABLE_DELVE_BONUS"
+    },
+    {
 			type = "slider",
 			name = "Delve Bonus Reminder Time",
 			tooltip = "How often to notify when you should get a new delve bonus",
@@ -95,23 +130,6 @@ function TorteMe.CreateSettingsWindow()
 			default = 10,
 			disabled = function() return not TorteMe.sv.Torte.enableTortes end,
 			reference = "TORTE_ME_DELVE_NOTIFICATION_TIME"
-    },
-    {
-      type = "checkbox",
-      name = "Enable HUD",
-			tooltip = "Turns on the HUD",
-      getFunc = function()
-          return TorteMe.sv.HUD.enabled
-        end,
-      setFunc = function(value)
-          TorteMe.sv.HUD.enabled = value
-          if GetParentZoneId(GetZoneId(GetUnitZoneIndex("player"))) == 181 then
-            TorteMeUI:SetHidden(not value)
-          end
-        end,
-			disabled = function() return not TorteMe.sv.Torte.enableTortes end,
-			default = true,
-			reference = "TORTE_ME_HUD_ENABLE"
     },
     {
       type = "header",
