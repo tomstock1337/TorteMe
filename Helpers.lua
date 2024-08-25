@@ -12,7 +12,7 @@ Return: isPlayerInCyrodiil bool
 
 function TorteMe:IsPlayerInCyrodiil()
   local isPlayerInCyrodiil = false
-  if GetParentZoneId(GetZoneId(GetUnitZoneIndex("player"))) == 181 then
+  if GetParentZoneId(GetZoneId(GetUnitZoneIndex("player"))) == TorteMe.const.ZONEID_CYRODIIL then
     isPlayerInCyrodiil = true
   end
   return isPlayerInCyrodiil

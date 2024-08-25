@@ -22,7 +22,9 @@ TorteMe.torteItems = {
   171329, --Alliance Skill Gain 100% Boost (Molten War Torte)
   171323  --Alliance Skill Gain 50% Boost (Colovian War Torte)
 }
-
+TorteMe.const = {
+  ZONEID_CYRODIIL = 181,
+}
 
 TorteMe.torteLoopType = "none"
 TorteMe.torteEventsInitialized = false
@@ -131,7 +133,7 @@ function TorteMe.OnPlayerLoaded(_, playerZoned)
 
   --This portion handles initalizing or cancelling the reminder loop depending on if your in our of cyrodiil and the status of turning on or off the tracking.
   --You have just logged in (while inside), done a reloadui (while inside) or zoned into cyrodiil from outside of Cyrodiil.
-  if (TorteMe:IsPlayerInCyrodiil() and TorteMe.initialLoad == true) or (TorteMe:IsPlayerInCyrodiil() and initialLoad == false and TorteMe.sv.Zone.oldParentZoneId ~= 181)  then
+  if (TorteMe:IsPlayerInCyrodiil() and TorteMe.initialLoad == true) or (TorteMe:IsPlayerInCyrodiil() and initialLoad == false and TorteMe.sv.Zone.oldParentZoneId ~= TorteMe.const.ZONEID_CYRODIIL)  then
     --You have zoned into cyrdooil, have enable tortes turned on but haqve not initialized your events
     if TorteMe.sv.Torte.enableTortes == true then
       if TorteMe.torteEventsInitialized == false then
