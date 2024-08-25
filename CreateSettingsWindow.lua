@@ -23,7 +23,7 @@ function TorteMe.CreateSettingsWindow()
         end,
       setFunc = function(value)
           TorteMe.sv.HUD.enabled = value
-          if GetParentZoneId(GetZoneId(GetUnitZoneIndex("player"))) == 181 then
+          if GetParentZoneId(GetZoneId(GetUnitZoneIndex("player"))) == TorteMe.const.ZONEID_CYRODIIL then
             TorteMeUI:SetHidden(not value)
           end
         end,
