@@ -420,7 +420,7 @@ function TorteMe:DelveBonusReminderLoop()
 	--*** SHOULD NOT LOOP ***
 
 	--Not in Cyrodiil or tortes are turned off safeguard, cancel events, set loop type to none and return
-	if isPlayerInCyrodiil == false or TorteMe.enableTortes == true and TorteMe.torteEventsInitialized == true then
+	if isPlayerInCyrodiil == false or TorteMe.sv.Torte.enableTortes == true and TorteMe.torteEventsInitialized == true then
 		TorteMe:Log("Catch Exited of Cyrodiil without cancelling events", true, 15)
 		TorteMe:CancelCyrodiilTorteEvents() 
 		return
