@@ -100,7 +100,7 @@ end
 --[[
 *****************************************************************************************
 
-  Runs after any loading screen regaqrdless of if it was from zoning or from /reloadui.
+  Runs after any loading screen regardless of if it was from zoning or from /reloadui.
 
   playerZoned: true = just logged in or zoned
         false = a /reloadui was performed.
